@@ -6,7 +6,7 @@ const Home = () => {
 
         <div className='relative w-full h-screen'>
           {/* Background Image */} 
-            <img src={HomeImg} className='w-full h-full object-cover transition-transform duration-300 ' alt='Model Y'></img>
+            <img src={HomeImg} className='w-full h-full object-cover transition-transform duration-300 ' alt='Model Y'/>
             {/* Container for text and Button */}
             <div className='absolute  top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center z-10'>
               <h1 className='mb-8  font-bold text-white text-5xl md:text-8xl '> Model Y</h1> 
