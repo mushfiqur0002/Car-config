@@ -11,6 +11,10 @@ import QuickSilver from '../../assets/button-quicksilver.avif';
 import InteriorDark from '../../assets/button-dark.avif';
 import InteriorLight from '../../assets/button-light.avif';
 
+import IndWheel from '../../assets/induction-wheel.avif';
+
+import GemWheel from '../../assets/gemini-wheel.avif';
+
 
 const Config = () => {
   return (
@@ -74,6 +78,17 @@ const Config = () => {
               <img src={InteriorLight} alt="Pearl White" className="w-12" />
             </button>
             </div>
+        </div>
+
+        {/* Wheel Buttons */}
+        <div className="mb-8" id="wheel-button">
+          <h3 className="font-semibold mb-2"> Wheels </h3>
+            <button className='btn-selected transition-transform duration-300 hover:scale-110 "'>
+              <img src={IndWheel} alt="Stealth Gray" className="w-16" />
+            </button>
+            <button className=' transition-transform duration-300 hover:scale-110 ms-4'>
+              <img src={GemWheel} alt="Stealth Gray" className="w-16"/>
+            </button>
         </div>
       </aside>
     </div>
