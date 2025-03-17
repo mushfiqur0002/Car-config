@@ -35,8 +35,8 @@ const Config = () => {
       </section>
       {/* Side Bar */}
       <aside className=' w-full md:w-1/3 pl-0 md:pl-8 mt-6 md:mt-0 z-2'>
-        <h2 className="text-xl text-center font-light"> Configure your </h2>
-        <h1 className='text-5xl text-center font-bold mb-5 text-gray-800'> Model Y</h1>
+        <h2 className="text-xl text-left font-light"> Configure your </h2>
+        <h1 className='text-5xl text-left font-bold mb-5 text-gray-800'> Model Y</h1>
 
         {/* Trim Level */}
         <div className='my-8 pb-8'>
@@ -89,6 +89,47 @@ const Config = () => {
             <button className=' transition-transform duration-300 hover:scale-110 ms-4'>
               <img src={GemWheel} alt="Stealth Gray" className="w-16"/>
             </button>
+        </div>
+
+        {/* Autopilot Packages */}
+        <div className='mb-8' id='Auto-Pilot'>
+          <h3 className='font-semibold mb-2'> Autopilot Packages</h3>
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+            <div className='flex justify-between w-full'>
+              <span className='font-medium'> Full Self-Driving Capability</span>
+              <span> £6,800</span>
+            </div>
+            <span className="mt-2 text-sm">
+              Includes Enhanced Autopilot, plus Traffic Light and Stop Sign Control. 
+              Additionally, in future updates, your vehicle will be able to drive itself 
+              almost anywhere with minimal driver intervention.
+            </span>
+          </div>
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+            <div className='flex justify-between w-full'>
+              <span className='font-medium'> Enhanced Autopilot</span>
+              <span> £3,400</span>
+            </div>
+            <span className="mt-2 text-sm">
+              Includes Basic Autopilot, plus driver-initiated assisted driving 
+              from motorway on-ramp to off-ramp, lane changes and overtaking. 
+              Also includes Dumb Summon, 
+              Actually Smart Summon and Autopark.
+            </span>
+          </div>
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+            <div className='flex justify-between w-full'>
+              <span className='font-medium'> Basic Autopilot</span>
+              <span> Included</span>
+            </div>
+            <span className="mt-2 text-sm">
+              Includes Autosteer and traffic-aware cruise control.
+            </span>
+          </div>
+        </div>
+        {/* Charging */}
+        <div className='mb-8' id='Charging'>
+          <h3 className='font-semibold mb-2'> Charging</h3>
         </div>
       </aside>
     </div>
