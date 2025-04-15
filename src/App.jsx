@@ -6,14 +6,13 @@ import Navbar from './Pages/Nav/Navbar';
 function App(){
   return (
     <>
-      {/* Navbar applied to all pages */}
       <Navbar/>
-      <div className="pt-16">
+      <div className="pt-1.5">
         <Routes>
-            <Route path='/' index element={<Home/>}/>
+            <Route path='/' element={<Home/>}/>
             <Route path='config' element={<Config/>}/>
         </Routes>
-        </div> 
+      </div> 
     </>
   );
 }

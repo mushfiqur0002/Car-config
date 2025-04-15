@@ -13,7 +13,7 @@ const Navbar = () => {
     };
 
   return (
-    <nav className='bg-white text-gray-300 p-4 fixed w-full top-0 z-10 shadow-md'>
+    <nav className='bg-white text-gray-300 p-4 fixed w-full top-0 left-0 z-50 shadow-md'>
         <div className='container mx-auto flex justify-between items-center'>
             {/* Logo */}
                 <Link to='/' className='flex items-center'>
@@ -25,13 +25,13 @@ const Navbar = () => {
                 <Link to='/config' className='hover:text-black text-gray-600 font-bold'>
                     Configurator
                 </Link>
-                <Link to='/' className='hover:text-black text-gray-600 font-bold'>
+                <Link to='#' className='hover:text-black text-gray-600 font-bold'>
                     Energy
                 </Link>
-                <Link to='/' className='hover:text-black  text-gray-600 font-bold'>
+                <Link to='#' className='hover:text-black  text-gray-600 font-bold'>
                     Discover
                 </Link>
-                <Link to='/' className='hover:text-black  text-gray-600 font-bold'>
+                <Link to='#' className='hover:text-black  text-gray-600 font-bold'>
                     Shop
                 </Link>
             </div>

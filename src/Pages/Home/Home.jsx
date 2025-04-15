@@ -1,10 +1,11 @@
 import React from 'react'
 import HomeImg from '../../assets/Homepage-Model-Y.avif';
 import { Link } from 'react-router-dom';
+import Topbanner from '../Nav/Topbanner';
 const Home = () => {
   return (
-
         <div className='relative w-full h-screen'>
+          <Topbanner/>
           {/* Background Image */} 
             <img src={HomeImg} className='w-full h-full object-cover transition-transform duration-300 ' alt='Model Y'/>
             {/* Container for text and Button */}

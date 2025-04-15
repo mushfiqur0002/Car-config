@@ -129,7 +129,38 @@ const Config = () => {
         </div>
         {/* Charging */}
         <div className='mb-8' id='Charging'>
-          <h3 className='font-semibold mb-2'> Charging</h3>
+          <h3 className='font-semibold'> Charging</h3>
+          <p>Every Tesla includes access to the largest global Supercharging network</p>
+            <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+              <div className='flex justify-between w-full'>
+                <span className='font-medium' >Wall Connector</span>
+                <span>£475</span>
+              </div>
+              <span className="mt-2 text-sm">
+                  Our recommended home charging solution.
+                </span>
+            </div>
+            <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+              <div className='flex justify-between w-full'>
+                <span className='font-medium' >Mobile Connector</span>
+                <span>£180</span>
+              </div>
+              <span className="mt-2 text-sm">
+                  Useful when away from home on extented trips.
+                </span>
+            </div>
+        </div>
+        {/* Price and total*/}
+        <div className='mt-4 text-center' id='Payment'>
+          <h1 className='text-4xl font-bold'> Your Model 3</h1>
+          <p>Est. delivery: April 2026</p>
+        </div>
+        <div className='pt-4'>
+          <div className='flex font-semibold text-lg  lg:text-2xl'>
+            <h3 > Total Price </h3>
+            <p className='ml-28' id='total-price'> £39,999 </p>
+          </div>
+          <p className=''>Includes VAT of £6,665</p>
         </div>
       </aside>
     </div>
