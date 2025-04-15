@@ -1,22 +1,40 @@
-import React from 'react'
-import ModelYgray from '../../assets/model-y-stealth-grey.jpg';
+import React, { useState } from 'react';
 
-import StealthGray from '../../assets/button-stealth-grey.avif';
+// Exterior colours
+import StealthGrey from '../../assets/button-stealth-grey.avif';
 import PearlWhite from '../../assets/button-pearl-white.avif';
 import DeepBlue from '../../assets/button-deep-blue-metallic.avif';
 import SolidBlack from '../../assets/button-solid-black.avif';
 import UltraRed from '../../assets/button-ultra-red.avif';
 import QuickSilver from '../../assets/button-quicksilver.avif';
 
+// Interior colours
 import InteriorDark from '../../assets/button-dark.avif';
 import InteriorLight from '../../assets/button-light.avif';
 
-import IndWheel from '../../assets/induction-wheel.avif';
+// Exterior Image
+import ModelYgrey from '../../assets/model-y-stealth-grey.jpg';
+import ModelYwhite from '../../assets/model-y-pearl-white.jpg';
+import ModelYblue from '../../assets/model-y-deep-blue-metallic.jpg';
+import ModelYblack from '../../assets/model-y-solid-black.jpg';
+import ModelYred from '../../assets/model-y-ultra-red.jpg';
+import ModelYsilver from '../../assets/model-y-quicksilver.jpg';
 
-import GemWheel from '../../assets/gemini-wheel.avif';
+// Interior Image
+import InteriorDarkImg from '../../assets/model-y-interior-dark.jpg';
+import InteriorLightImg from '../../assets/model-y-interior-light.jpg';
+
+
+//Wheels
+import IndWheel from '../../assets/Induction-Wheel.avif';
+import GemWheel from '../../assets/Performance-Wheel.avif';
 
 
 const Config = () => {
+  const [exteriorImage, setExteriorImage] = useState(ModelYgrey);
+  const [interiorImage, setInteriorImage] = useState(InteriorDark);
+  const [wheelImage, setWheelImage] = useState(IndWheel);
+
   return (
     <div className=' flex flex-col md:flex-row justify-between px-4 md:px-10 py-6'>
       {/* Image section */}
@@ -24,57 +42,50 @@ const Config = () => {
           <div className='sticky top-24'>
               <div className="h-96 bg-grey-200 flex items-center justify-center overflow-hidden mb-4">
                 <img 
-                  src={ModelYgray} alt="model-y" 
-                  className="max-w-full h-auto transform scale-125" 
-                  id='exterior-image' 
+                  src={exteriorImage} alt="Exterior" 
+                  className="max-w-full h-auto transform scale-125"
                 />
-
-
               </div>
           </div>
       </section>
-      {/* Side Bar */}
+      {/* Side Bar Controls */}
       <aside className=' w-full md:w-1/3 pl-0 md:pl-8 mt-6 md:mt-0 z-2'>
         <h2 className="text-xl text-left font-light"> Configure your </h2>
         <h1 className='text-5xl text-left font-bold mb-5 text-gray-800'> Model Y</h1>
 
-        {/* Trim Level */}
-        <div className='my-8 pb-8'>
-
-        </div>
-
-        {/* Exterior buttons */}
+        {/* Exterior Colours buttons */}
         <div className='my-8 ' id='exterior-buttons'>
           <h3 className="font-semibold mb-2"> Exterior Colour</h3> 
           <div className='flex space-x-4'>
-            <button className='btn-selected transition-transform duration-300 hover:scale-110'>
-              <img src={StealthGray} alt="Stealth Gray" className="w-12" />
+            <button onClick={() => setExteriorImage(ModelYgrey)} className='btn-selected transition-transform duration-300 hover:scale-110'>
+              <img src={StealthGrey} alt="Stealth Gray" className="w-12" />
             </button>
-            <button className='transition-transform duration-300 hover:scale-110'>
+            <button onClick={() => setExteriorImage(ModelYwhite)} className='transition-transform duration-300 hover:scale-110'>
               <img src={PearlWhite} alt="Pearl White" className="w-12" />
             </button>
-            <button className='transition-transform duration-300 hover:scale-110'>
+            <button onClick={() => setExteriorImage(ModelYblue)} className='transition-transform duration-300 hover:scale-110'>
               <img src={DeepBlue} alt="Deep Blue" className="w-12" />
             </button>
-            <button className='transition-transform duration-300 hover:scale-110'>
+            <button onClick={() => setExteriorImage(ModelYred)} className='transition-transform duration-300 hover:scale-110'>
               <img src={UltraRed} alt="Ultra Red" className="w-12" />
             </button>
-            <button className='transition-transform duration-300 hover:scale-110'>
+            <button onClick={() => setExteriorImage(ModelYblack)} className='transition-transform duration-300 hover:scale-110'>
               <img src={SolidBlack} alt="Solid Black" className="w-12" />
             </button>
-            <button className='transition-transform duration-300 hover:scale-110'>
+            <button onClick={() => setExteriorImage(ModelYsilver)} className='transition-transform duration-300 hover:scale-110'>
               <img src={QuickSilver} alt="Quick Silver" className="w-12" />
             </button>
           </div>
         </div>
-        {/* Interior Buttons */}
+
+        {/* Interior Button Colours */}
         <div className='my-8' id='interior-buttons'>
           <h3 className="font-semibold mb-2"> Interior Colour</h3> 
           <div className='flex space-x-4'>
-            <button className='btn-selected transition-transform duration-300 hover:scale-110'>
+            <button onClick={() => setInteriorImage(InteriorDarkImg)} className='transition-transform duration-300 hover:scale-110'>
               <img src={InteriorDark} alt="Stealth Gray" className="w-12" />
             </button>
-            <button className='transition-transform duration-300 hover:scale-110'>
+            <button onClick={() => setInteriorImage(InteriorLightImg)} className='transition-transform duration-300 hover:scale-110'>
               <img src={InteriorLight} alt="Pearl White" className="w-12" />
             </button>
             </div>
@@ -83,11 +94,11 @@ const Config = () => {
         {/* Wheel Buttons */}
         <div className="mb-8" id="wheel-button">
           <h3 className="font-semibold mb-2"> Wheels </h3>
-            <button className='btn-selected transition-transform duration-300 hover:scale-110 "'>
-              <img src={IndWheel} alt="Stealth Gray" className="w-16" />
+            <button onClick={() => setWheelImage(IndWheel)} className='transition-transform duration-300 hover:scale-110 "'>
+              <img src={IndWheel} alt="Induction Wheel" className="w-16" />
             </button>
-            <button className=' transition-transform duration-300 hover:scale-110 ms-4'>
-              <img src={GemWheel} alt="Stealth Gray" className="w-16"/>
+            <button onClick={() => setWheelImage(GemWheel)} className=' transition-transform duration-300 hover:scale-110 ms-4'>
+              <img src={GemWheel} alt="Gemini Wheel" className="w-16"/>
             </button>
         </div>
 
