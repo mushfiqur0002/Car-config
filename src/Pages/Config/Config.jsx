@@ -32,10 +32,36 @@ import GemWheel from '../../assets/Performance-Wheel.avif';
 
 const Config = () => {
   const [imageView, setImageView] = useState('exterior');
-  const [exteriorImage, setExteriorImage] = useState(ModelYgrey);
-  const [interiorImage, setInteriorImage] = useState(InteriorDark);
-  const [wheelImage, setWheelImage] = useState(IndWheel);
 
+  const [selectedExterior, setSelectedExterior] = useState({
+    name: 'Stealth Grey',
+    image: ModelYgrey,
+    price: 0
+  });
+  const [selectedInterior, setSelectedInterior] = useState({
+    name: 'Dark Interior',
+    image: InteriorDarkImg,
+    price: 0
+  });
+
+  const [selectedWheel, setSelectedWheel] = useState({
+    name: 'Induction Wheel',
+    image: IndWheel,
+    price: 0
+  });
+
+  const [selectedAutopilot, setSelectedAutopilot] = useState({
+    name: 'Basic Autopilot',
+    price: 0
+  });
+
+  const [selectedCharging, setSelectedCharging] = useState({
+    name: 'none',
+    price: 0
+  })
+
+  const basePrice = 39999;
+  const totalPrice = basePrice + selectedAutopilot.price + selectedCharging.price + selectedExterior.price + selectedInterior.price + selectedWheel.price;
   return (
     <div className=' flex flex-col md:flex-row justify-between px-4 md:px-10 py-6'>
       {/* Image section */}
@@ -43,7 +69,7 @@ const Config = () => {
           <div className='sticky top-24'>
               <div className="h-96 bg-grey-200 flex items-center justify-center overflow-hidden mb-4">
                 <img 
-                  src={imageView === 'exterior' ? exteriorImage : interiorImage} 
+                  src={imageView === 'exterior' ? selectedExterior.image : selectedInterior.image} 
                   alt="model-y" 
                   className="max-w-full h-auto transform scale-125"
                 />
@@ -60,37 +86,61 @@ const Config = () => {
           <h3 className="font-semibold mb-2"> Exterior Colour</h3> 
           <div className='flex space-x-4'>
             <button onClick={() =>{
-              setExteriorImage(ModelYgrey);
+              setSelectedExterior({
+                name: 'Stealth Grey',
+                image: ModelYgrey,
+                price: 0
+              });
               setImageView('exterior');
               }} className='transition-transform duration-300 hover:scale-110'>
               <img src={StealthGrey} alt="Stealth Gray" className="w-12" />
             </button>
             <button onClick={() => {
-              setExteriorImage(ModelYwhite)
+              setSelectedExterior({
+                name: 'Pearl White',
+                image: ModelYwhite,
+                price: 0
+              });
               setImageView('exterior');
             }}className='transition-transform duration-300 hover:scale-110'>
               <img src={PearlWhite} alt="Pearl White" className="w-12" />
             </button>
             <button onClick={() => {
-              setExteriorImage(ModelYblue)
+              setSelectedExterior({
+                name: 'Deep Blue',
+                image: ModelYblue,
+                price: 0
+              });
               setImageView('exterior');
               }}className='transition-transform duration-300 hover:scale-110'>
               <img src={DeepBlue} alt="Deep Blue" className="w-12" />
             </button>
             <button onClick={() => {
-              setExteriorImage(ModelYred)
+              setSelectedExterior({
+                name: 'Ultra Red',
+                image: ModelYred,
+                price: 0
+              });
               setImageView('exterior');
               }}className='transition-transform duration-300 hover:scale-110'>
               <img src={UltraRed} alt="Ultra Red" className="w-12" />
             </button>
             <button onClick={() => {
-              setExteriorImage(ModelYblack)
+              setSelectedExterior({
+                name: 'Solid Black',
+                image: ModelYblack,
+                price: 0
+              });
               setImageView('exterior');
               }}className='transition-transform duration-300 hover:scale-110'>
               <img src={SolidBlack} alt="Solid Black" className="w-12" />
             </button>
             <button onClick={() => {
-              setExteriorImage(ModelYsilver)
+              setSelectedExterior({
+                name: 'Quick Silver',
+                image: ModelYsilver,
+                price: 0
+              })
               setImageView('exterior');
               }} className='transition-transform duration-300 hover:scale-110'>
               <img src={QuickSilver} alt="Quick Silver" className="w-12" />
@@ -103,13 +153,21 @@ const Config = () => {
           <h3 className="font-semibold mb-2"> Interior Colour</h3> 
           <div className='flex space-x-4'>
             <button onClick={() => {
-              setInteriorImage(InteriorDarkImg)
+              setSelectedInterior({
+                name: 'Dark Interior',
+                image: InteriorDarkImg,
+                price: 0
+              });
               setImageView('interior');
               }} className='transition-transform duration-300 hover:scale-110'>
               <img src={InteriorDark} alt="Dark Interior" className="w-12" />
             </button>
             <button onClick={() => {
-              setInteriorImage(InteriorLightImg)
+              setSelectedInterior({
+                name: 'Light Interior',
+                image: InteriorLightImg,
+                price: 1500
+              });
               setImageView('interior');
               }} className='transition-transform duration-300 hover:scale-110'>
               <img src={InteriorLight} alt="Light Interior" className="w-12" />
@@ -120,18 +178,37 @@ const Config = () => {
         {/* Wheel Buttons */}
         <div className="mb-8" id="wheel-button">
           <h3 className="font-semibold mb-2"> Wheels </h3>
-            <button onClick={() => {setWheelImage(IndWheel)}} className='transition-transform duration-300 hover:scale-110 "'>
+            <button onClick={() => {
+              setSelectedWheel({
+                name: 'Induction Wheel',
+                image: IndWheel,
+                price: 0
+              });
+              }} className='transition-transform duration-300 hover:scale-110 "'>
               <img src={IndWheel} alt="Induction Wheel" className="w-16" />
+              <p className=' text-sm'> Standard</p>
             </button>
-            <button onClick={() => setWheelImage(GemWheel)} className=' transition-transform duration-300 hover:scale-110 ms-4'>
+            <button onClick={() => {
+              setSelectedWheel({
+                name: 'Performance Wheel',
+                image: GemWheel,
+                price: 2000
+              });
+              }} className=' transition-transform duration-300 hover:scale-110 ms-4'>
               <img src={GemWheel} alt="Gemini Wheel" className="w-16"/>
+              <p className=' text-sm's> Performance</p>
             </button>
         </div>
 
         {/* Autopilot Packages */}
         <div className='mb-8' id='Auto-Pilot'>
           <h3 className='font-semibold mb-2'> Autopilot Packages</h3>
-          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+          <div className={`mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer ${selectedAutopilot.name === 'Basic Autopilot' ? 'border-black': ''}`} onClick={() => 
+            setSelectedAutopilot({ 
+              name: 'Full Self-Driving Capability', 
+              price: 6800 
+              })}>
+            
             <div className='flex justify-between w-full'>
               <span className='font-medium'> Full Self-Driving Capability</span>
               <span> £6,800</span>
@@ -142,7 +219,11 @@ const Config = () => {
               almost anywhere with minimal driver intervention.
             </span>
           </div>
-          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer' onClick={() =>
+            setSelectedAutopilot({
+              name: 'Enhanced Autopilot',
+              price: 3400
+            })}>
             <div className='flex justify-between w-full'>
               <span className='font-medium'> Enhanced Autopilot</span>
               <span> £3,400</span>
@@ -154,7 +235,11 @@ const Config = () => {
               Actually Smart Summon and Autopark.
             </span>
           </div>
-          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer' onClick={() => 
+            setSelectedAutopilot({ 
+              name: 'Basic Autopilot',
+              price: 0
+            })}>
             <div className='flex justify-between w-full'>
               <span className='font-medium'> Basic Autopilot</span>
               <span> Included</span>
@@ -168,7 +253,11 @@ const Config = () => {
         <div className='mb-8' id='Charging'>
           <h3 className='font-semibold'> Charging</h3>
           <p>Every Tesla includes access to the largest global Supercharging network</p>
-            <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+            <div className={`mt-2 border rounded px-4 py-2 text-gray-700  hover:cursor-pointer ${selectedCharging.name === 'Wall Connector' ? 'text-black': 'text-gray-700'}`} onClick={() => 
+              setSelectedCharging({
+                name: 'Wall Connector',
+                price: 475
+              })}>
               <div className='flex justify-between w-full'>
                 <span className='font-medium' >Wall Connector</span>
                 <span>£475</span>
@@ -177,7 +266,11 @@ const Config = () => {
                   Our recommended home charging solution.
                 </span>
             </div>
-            <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:text-black hover:cursor-pointer'>
+            <div className={`mt-2 border rounded px-4 py-2 text-gray-700  hover:cursor-pointer ${selectedCharging.name === 'Mobile Connector' ? 'text-black': 'text-gray-700'}`} onClick={() => 
+              setSelectedCharging({
+                name: 'Mobile Connector',
+                price: 180
+              })}>
               <div className='flex justify-between w-full'>
                 <span className='font-medium' >Mobile Connector</span>
                 <span>£180</span>
@@ -189,15 +282,24 @@ const Config = () => {
         </div>
         {/* Price and total*/}
         <div className='mt-4 text-center' id='Payment'>
-          <h1 className='text-4xl font-bold'> Your Model 3</h1>
+          <h1 className='text-4xl font-bold'> Your Model Y</h1>
           <p>Est. delivery: April 2026</p>
-        </div>
-        <div className='pt-4'>
-          <div className='flex font-semibold text-lg  lg:text-2xl'>
-            <h3 > Total Price </h3>
-            <p className='ml-28' id='total-price'> £39,999 </p>
+
+        
+          <div className=' text-left mt-4'>
+            <p><strong>Exterior Colour:</strong> {selectedExterior.name}</p>
+            <p><strong>Interior:</strong> {selectedInterior.name}</p>
+            <p><strong>Wheels:</strong> {selectedWheel.name}</p>
+            <p><strong>Autopilot Package:</strong> {selectedAutopilot.name}</p>
           </div>
-          <p className=''>Includes VAT of £6,665</p>
+        </div>
+
+        <div className='mt-4'>
+          <div className='flex font-semibold text-lg lg:text-2xl'>
+            <h3>Total Price</h3>
+            <p className='ml-28' id='total-price'>£{totalPrice.toLocaleString()}</p>
+          </div>
+            <p>Includes VAT of £{Math.round(totalPrice * 0.2).toLocaleString()}</p>
         </div>
       </aside>
     </div>

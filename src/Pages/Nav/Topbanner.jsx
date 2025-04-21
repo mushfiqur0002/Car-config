@@ -26,7 +26,7 @@ function Topbanner() {
 
   return (
     <div
-      className={`w-full bg-amber-400 text-black text-center py-1 text-sm md:text-base font-normal fixed top-16 z-40 transition-transform duration-300 ${
+      className={`w-full bg-amber-400 text-black text-center py-2 text-sm md:text-base font-normal fixed top-16 z-40 transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
