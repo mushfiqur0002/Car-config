@@ -360,6 +360,9 @@ const Config = () => {
           </div>
             <p>Includes VAT of £{Math.round(totalPrice * 0.2).toLocaleString()}</p>
         </div>
+        <div className='mt-4'>
+          <button className='bg-blue-500 text-white py-2 px-4 rounded-lg w-full hover:cursor-pointer'>Order Now</button>
+        </div>
       </aside>
     </div>
   )
