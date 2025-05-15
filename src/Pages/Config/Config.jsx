@@ -29,6 +29,9 @@ import InteriorLightImg from '../../assets/model-y-interior-light.jpg';
 import IndWheel from '../../assets/Induction-Wheel.avif';
 import GemWheel from '../../assets/Performance-Wheel.avif';
 
+//Tick icon for selected
+import Tick from '../../assets/tick-icon.svg';
+
 
 const Config = () => {
   const [imageView, setImageView] = useState('exterior');
@@ -79,7 +82,7 @@ const Config = () => {
       {/* Side Bar Controls */}
       <aside className=' w-full md:w-1/3 pl-0 md:pl-8 mt-6 md:mt-0 z-2'>
         <h2 className="text-xl text-left font-light"> Configure your </h2>
-        <h1 className='text-5xl text-left font-bold mb-5 text-gray-800'> Model Y</h1>
+        <h1 className='text-5xl text-left font-bold mb-5 mt-5 text-gray-800'> Model Y</h1>
 
         {/* Exterior Colours buttons */}
         <div className='my-8 ' id='exterior-buttons'>
@@ -92,8 +95,12 @@ const Config = () => {
                 price: 0
               });
               setImageView('exterior');
-              }} className='transition-transform duration-300 hover:scale-110'>
+              }} 
+              className='relative transition-transform duration-300 hover:scale-110'>
               <img src={StealthGrey} alt="Stealth Gray" className="w-12" />
+              {selectedExterior.name === 'Stealth Grey' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             <button onClick={() => {
               setSelectedExterior({
@@ -102,8 +109,11 @@ const Config = () => {
                 price: 0
               });
               setImageView('exterior');
-            }}className='transition-transform duration-300 hover:scale-110'>
+            }}className='relative transition-transform duration-300 hover:scale-110'>
               <img src={PearlWhite} alt="Pearl White" className="w-12" />
+              {selectedExterior.name === 'Pearl White' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             <button onClick={() => {
               setSelectedExterior({
@@ -112,8 +122,11 @@ const Config = () => {
                 price: 0
               });
               setImageView('exterior');
-              }}className='transition-transform duration-300 hover:scale-110'>
+              }}className='relative transition-transform duration-300 hover:scale-110'>
               <img src={DeepBlue} alt="Deep Blue" className="w-12" />
+              {selectedExterior.name === 'Deep Blue' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             <button onClick={() => {
               setSelectedExterior({
@@ -122,8 +135,11 @@ const Config = () => {
                 price: 0
               });
               setImageView('exterior');
-              }}className='transition-transform duration-300 hover:scale-110'>
+              }}className='relative transition-transform duration-300 hover:scale-110'>
               <img src={UltraRed} alt="Ultra Red" className="w-12" />
+              {selectedExterior.name === 'Ultra Red' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             <button onClick={() => {
               setSelectedExterior({
@@ -132,8 +148,11 @@ const Config = () => {
                 price: 0
               });
               setImageView('exterior');
-              }}className='transition-transform duration-300 hover:scale-110'>
+              }}className='relative transition-transform duration-300 hover:scale-110'>
               <img src={SolidBlack} alt="Solid Black" className="w-12" />
+              {selectedExterior.name === 'Solid Black' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             <button onClick={() => {
               setSelectedExterior({
@@ -142,8 +161,11 @@ const Config = () => {
                 price: 0
               })
               setImageView('exterior');
-              }} className='transition-transform duration-300 hover:scale-110'>
+              }} className='relative transition-transform duration-300 hover:scale-110'>
               <img src={QuickSilver} alt="Quick Silver" className="w-12" />
+              {selectedExterior.name === 'Quick Silver' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
           </div>
         </div>
@@ -159,8 +181,11 @@ const Config = () => {
                 price: 0
               });
               setImageView('interior');
-              }} className='transition-transform duration-300 hover:scale-110'>
+              }} className='relative transition-transform duration-300 hover:scale-110'>
               <img src={InteriorDark} alt="Dark Interior" className="w-12" />
+              {selectedInterior.name === 'Dark Interior' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             <button onClick={() => {
               setSelectedInterior({
@@ -169,8 +194,11 @@ const Config = () => {
                 price: 1500
               });
               setImageView('interior');
-              }} className='transition-transform duration-300 hover:scale-110'>
+              }} className='relative transition-transform duration-300 hover:scale-110'>
               <img src={InteriorLight} alt="Light Interior" className="w-12" />
+              {selectedInterior.name === 'Light Interior' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             </div>
         </div>
@@ -184,9 +212,12 @@ const Config = () => {
                 image: IndWheel,
                 price: 0
               });
-              }} className='transition-transform duration-300 hover:scale-110 "'>
+              }} className='relative transition-transform duration-300 hover:scale-110 "'>
               <img src={IndWheel} alt="Induction Wheel" className="w-16" />
               <p className=' text-sm'> Standard</p>
+              {selectedWheel.name === 'Induction Wheel' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
             <button onClick={() => {
               setSelectedWheel({
@@ -194,21 +225,28 @@ const Config = () => {
                 image: GemWheel,
                 price: 2000
               });
-              }} className=' transition-transform duration-300 hover:scale-110 ms-4'>
+              }} className='relative transition-transform duration-300 hover:scale-110 ms-4'>
               <img src={GemWheel} alt="Gemini Wheel" className="w-16"/>
               <p className=' text-sm's> Performance</p>
+              {selectedWheel.name === 'Performance Wheel' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 righ-0 w-5 h-5'/>
+              )}
             </button>
         </div>
 
         {/* Autopilot Packages */}
         <div className='mb-8' id='Auto-Pilot'>
           <h3 className='font-semibold mb-2'> Autopilot Packages</h3>
-          <div className={`mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer ${selectedAutopilot.name === 'Basic Autopilot' ? 'border-black': ''}`} onClick={() => 
+
+          {/* Full Self-Driven */}
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer relative' onClick={() => 
             setSelectedAutopilot({ 
               name: 'Full Self-Driving Capability', 
               price: 6800 
               })}>
-            
+              {selectedAutopilot.name === 'Full Self-Driving Capability' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 left-0 w-5 h-5'/>
+              )}
             <div className='flex justify-between w-full'>
               <span className='font-medium'> Full Self-Driving Capability</span>
               <span> £6,800</span>
@@ -218,12 +256,17 @@ const Config = () => {
               Additionally, in future updates, your vehicle will be able to drive itself 
               almost anywhere with minimal driver intervention.
             </span>
+
+              {/* Enhanced Autopilot */}
           </div>
-          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer' onClick={() =>
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer relative' onClick={() =>
             setSelectedAutopilot({
               name: 'Enhanced Autopilot',
               price: 3400
             })}>
+              {selectedAutopilot.name === 'Enhanced Autopilot' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 left-0 w-5 h-5'/>
+              )}
             <div className='flex justify-between w-full'>
               <span className='font-medium'> Enhanced Autopilot</span>
               <span> £3,400</span>
@@ -235,11 +278,16 @@ const Config = () => {
               Actually Smart Summon and Autopark.
             </span>
           </div>
-          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer' onClick={() => 
+
+          {/* Basic Autopilot */}
+          <div className='mt-2 border rounded px-4 py-2 text-gray-700 hover:cursor-pointer relative' onClick={() => 
             setSelectedAutopilot({ 
               name: 'Basic Autopilot',
               price: 0
             })}>
+              {selectedAutopilot.name === 'Basic Autopilot' && 
+              (<img src = {Tick} alt = 'Selected' className='absolute top-0 left-0 w-5 h-5'/>
+              )}
             <div className='flex justify-between w-full'>
               <span className='font-medium'> Basic Autopilot</span>
               <span> Included</span>
@@ -253,11 +301,16 @@ const Config = () => {
         <div className='mb-8' id='Charging'>
           <h3 className='font-semibold'> Charging</h3>
           <p>Every Tesla includes access to the largest global Supercharging network</p>
-            <div className={`mt-2 border rounded px-4 py-2 text-gray-700  hover:cursor-pointer ${selectedCharging.name === 'Wall Connector' ? 'text-black': 'text-gray-700'}`} onClick={() => 
+            <div className= 'mt-2 border rounded px-4 py-2 text-gray-700  hover:cursor-pointer relative' onClick={() => 
               setSelectedCharging({
                 name: 'Wall Connector',
                 price: 475
               })}>
+                {selectedCharging.name === 'Wall Connector' && 
+              (<img src = {Tick} 
+                alt = 'Selected' 
+                className='absolute top-0 left-0 w-5 h-5'/>
+              )}
               <div className='flex justify-between w-full'>
                 <span className='font-medium' >Wall Connector</span>
                 <span>£475</span>
@@ -266,11 +319,16 @@ const Config = () => {
                   Our recommended home charging solution.
                 </span>
             </div>
-            <div className={`mt-2 border rounded px-4 py-2 text-gray-700  hover:cursor-pointer ${selectedCharging.name === 'Mobile Connector' ? 'text-black': 'text-gray-700'}`} onClick={() => 
+            <div className='mt-2 border rounded px-4 py-2 text-gray-700  hover:cursor-pointer relative' onClick={() => 
               setSelectedCharging({
                 name: 'Mobile Connector',
                 price: 180
               })}>
+                {selectedCharging.name === 'Mobile Connector' && 
+              (<img src = {Tick} 
+                alt = 'Selected' 
+                className='absolute top-0 left-0 w-5 h-5'/>
+              )}
               <div className='flex justify-between w-full'>
                 <span className='font-medium' >Mobile Connector</span>
                 <span>£180</span>
@@ -291,6 +349,7 @@ const Config = () => {
             <p><strong>Interior:</strong> {selectedInterior.name}</p>
             <p><strong>Wheels:</strong> {selectedWheel.name}</p>
             <p><strong>Autopilot Package:</strong> {selectedAutopilot.name}</p>
+            <p><strong>Charging:</strong> {selectedCharging.name}</p>
           </div>
         </div>
 
